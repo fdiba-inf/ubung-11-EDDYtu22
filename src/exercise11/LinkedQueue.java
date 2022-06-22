@@ -5,17 +5,34 @@ public class LinkedQueue {
     private Node backNode;
 
     public boolean isEmpty() {
-        // Check if queue has no elements
-        return false;
+        if (frontNode == null) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
     public void offer(String data) {
-        // Offer element to queue
+        Node currentNode = new Node(data);
+
+        if (isEmpty()){
+            frontNode = backNode = currentNode;
+        } else{
+            backNode.setNextNode(currentNode);
+            backNode = currentNode;
+        }
     }
 
     public String poll() {
-        // Poll element from queue
-        return null;
+        String data = "";
+        if (isEmpty()){
+            return null;
+        } else{
+            data = frontNode.getData();
+            frontNode = frontNode.getNextNode();
+        }
+        return data;
     }
 
     @Override

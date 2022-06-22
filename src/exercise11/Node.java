@@ -1,8 +1,8 @@
 package exercise11;
 
 public class Node {
-    private final String data;
-    private Node nextNode;
+    final String data;
+    Node nextNode;
 
     public Node(String data) {
         this.data = data;

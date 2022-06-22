@@ -1,20 +1,45 @@
 package exercise11;
 
+
+
 public class LinkedStack {
     private Node topNode;
 
+
+
     public boolean isEmpty() {
-        // Check if stack has no elements
+        if(topNode == null) {
+            return true;
+        } else
         return false;
     }
 
     public void push(String data) {
-        // Push element to stack
+        Node currentNode = new Node(data);
+
+        if(isEmpty()){
+            topNode = currentNode;
+        } else {
+            currentNode.setNextNode(topNode);
+            topNode = currentNode;
+        }
+
+
+
+
     }
 
     public String pop() {
-        // Pop element from stack
-        return null;
+        String data = "";
+        if(isEmpty()){
+            return "null";
+        } else {
+            Node currentNode=this.topNode.getNextNode();
+            data = this.topNode.getData();
+            this.topNode=currentNode;
+            this.topNode.setNextNode(currentNode.getNextNode());
+        }
+        return data;
     }
 
     @Override
